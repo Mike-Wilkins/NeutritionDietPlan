@@ -1,0 +1,43 @@
+﻿@model DataLayer.Models.Recipe
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>@ViewBag.DietType_Name</h3>
+<hr />
+
+<h4>Recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ingredients" class="control-label"></label>
+                <input asp-for="Ingredients" class="form-control" />
+                <span asp-validation-for="Ingredients" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NutritionalInfo" class="control-label"></label>
+                <input asp-for="NutritionalInfo" class="form-control" />
+                <span asp-validation-for="NutritionalInfo" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" id="@ViewBag.DietType_Id"class="btn btn-success" />
+                <a asp-action="Index" asp-route-id="@ViewBag.DietType_Id" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

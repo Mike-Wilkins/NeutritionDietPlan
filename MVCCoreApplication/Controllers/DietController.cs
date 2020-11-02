@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataLayer.Models;
+﻿using DataLayer.Models;
 using DataLayer.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace MVCCoreApplication.Controllers
 {
@@ -45,7 +42,7 @@ namespace MVCCoreApplication.Controllers
             var diet = await _db.GetDiet(id);
             return View(diet);
         }
-    
+
         // POST: Delete
         [HttpPost]
         [ActionName("Delete")]
@@ -70,6 +67,6 @@ namespace MVCCoreApplication.Controllers
             var dietList = await _db.GetAllDiets();
             return View("Index", dietList);
         }
-       
+
     }
 }
